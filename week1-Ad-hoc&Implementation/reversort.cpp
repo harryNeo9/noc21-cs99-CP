@@ -10,13 +10,17 @@
         int cost=0;
 
         for(int i=0; i<L.size()-1; i++){
-
+            
+            // Find the minimum element in the "rest of the array":
             int m = *min_element(L.begin()+i, L.end());
 
+             // Find the index of the minimum element found above:
             auto x = find(L.begin(),L.end(),m);
 
+            // Execute the reversal:
             reverse(L.begin()+i, x+1);
-
+            
+            // Track the cost:
             int j = distance(L.begin(),x);
 
             cost+= j-i+1;
